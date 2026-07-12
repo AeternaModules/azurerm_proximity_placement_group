@@ -1,3 +1,7 @@
+output "proximity_placement_groups_id" {
+  description = "Map of id values across all proximity_placement_groups, keyed the same as var.proximity_placement_groups"
+  value       = { for k, v in azurerm_proximity_placement_group.proximity_placement_groups : k => v.id }
+}
 output "proximity_placement_groups_allowed_vm_sizes" {
   description = "Map of allowed_vm_sizes values across all proximity_placement_groups, keyed the same as var.proximity_placement_groups"
   value       = { for k, v in azurerm_proximity_placement_group.proximity_placement_groups : k => v.allowed_vm_sizes }
